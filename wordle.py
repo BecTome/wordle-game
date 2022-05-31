@@ -98,28 +98,27 @@ if __name__=='__main__':
     # With Q we quit the game
     for i in range(N_TRIES):
         guess = input(Fore.LIGHTBLUE_EX\
-                        + f"Introduce una palabra (intento {i+1}/{N_TRIES})"
+                        + f"Introduce una palabra (intento {i+1}/{N_TRIES})\n\n"
                     ).upper()
-
         while True:
 
             # Check if the word length is the expected one
             if (len(guess) != MAX_WORD_LEN) & (guess != "Q"):
                 print(Fore.RED + "INCORRECTO. INTRODUCE UNA PALABRA DE 5 LETRAS")
                 guess = input(Fore.LIGHTBLUE_EX\
-                                + f"Introduce una palabra de 5 letras (intento {i+1}/{N_TRIES})"
+                                + f"Introduce una palabra de 5 letras (intento {i+1}/{N_TRIES})\n"
                             ).upper()
 
             # Check if the word is in the dictionary
             elif (guess not in vocab) & (guess!="Q"):
                 print(Fore.RED + "LA PALABRA NO EXISTE")
                 guess = input(Fore.LIGHTBLUE_EX \
-                                + f"Introduce una palabra de 5 letras (intento {i+1}/{N_TRIES})"
+                                + f"Introduce una palabra de 5 letras (intento {i+1}/{N_TRIES})\n"
                             ).upper()
 
             else:
                 break
-        
+
         # If we want to quit, we say ADIOS
         if guess == "Q":
             print(Fore.LIGHTBLUE_EX + "ADIOS!")
@@ -127,7 +126,7 @@ if __name__=='__main__':
         
         # Compare the word with the solution and print the colors
         ls_print, _ = compare_wordle(guess, word)
-        print(" ".join(ls_print))
+        print(" ".join(ls_print), "\n")
 
         # If we guessed, we celebrate and finish the program
         if guess == word:
@@ -138,5 +137,6 @@ if __name__=='__main__':
     if i == N_TRIES - 1:
         print('\n')
         print(Fore.RED + "FIN DEL JUEGO: SE TE ACABARON LOS INTENTOS")
+        print("La palabra correcta era " + Fore.GREEN + word)
 
     print(Fore.WHITE)
