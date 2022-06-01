@@ -134,7 +134,7 @@ if __name__=='__main__':
             break
     
     # If we've reached the max number of chances then we've lost
-    if i == N_TRIES - 1:
+    if i == N_TRIES:
         print('\n')
         print(Fore.RED + "FIN DEL JUEGO: SE TE ACABARON LOS INTENTOS")
         print("La palabra correcta era " + Fore.GREEN + word)
