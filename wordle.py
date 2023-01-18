@@ -104,14 +104,14 @@ if __name__=='__main__':
 
             # Check if the word length is the expected one
             if (len(guess) != MAX_WORD_LEN) & (guess != "Q"):
-                print(Fore.RED + "INCORRECTO. INTRODUCE UNA PALABRA DE 5 LETRAS")
+                print(Fore.RED + f"INCORRECTO. INTRODUCE UNA PALABRA DE {MAX_WORD_LEN} LETRAS\n")
                 guess = input(Fore.LIGHTBLUE_EX\
                                 + f"Introduce una palabra de 5 letras (intento {i+1}/{N_TRIES})\n"
                             ).upper()
 
             # Check if the word is in the dictionary
             elif (guess not in vocab) & (guess!="Q"):
-                print(Fore.RED + "LA PALABRA NO EXISTE")
+                print(Fore.RED + "LA PALABRA NO EXISTE\n")
                 guess = input(Fore.LIGHTBLUE_EX \
                                 + f"Introduce una palabra de 5 letras (intento {i+1}/{N_TRIES})\n"
                             ).upper()
@@ -134,7 +134,7 @@ if __name__=='__main__':
             break
     
     # If we've reached the max number of chances then we've lost
-    if i == N_TRIES:
+    if i == N_TRIES - 1:
         print('\n')
         print(Fore.RED + "FIN DEL JUEGO: SE TE ACABARON LOS INTENTOS")
         print("La palabra correcta era " + Fore.GREEN + word)
